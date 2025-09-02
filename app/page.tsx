@@ -1,103 +1,211 @@
-import Image from "next/image";
+// app/page.tsx
+import { Noto_Sans_Thai } from "next/font/google";
+
+const notoThai = Noto_Sans_Thai({
+  subsets: ["thai"],
+  weight: ["400", "500", "600", "700"],
+});
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className={`${notoThai.className} bg-gray-50`}>
+      {/* Header */}
+      <header className="bg-pink-600 shadow-sm sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <h1 className="text-2xl font-bold text-white">DooDee</h1>
+          <nav className="hidden md:flex space-x-6 text-white font-medium">
+            <a href="#" className="hover:underline">
+              หน้าหลัก
+            </a>
+            <a href="#" className="hover:underline">
+              ไฟล์ทั้งหมด
+            </a>
+            <a href="#" className="hover:underline">
+              วิเคราะห์
+            </a>
+            <a href="#" className="hover:underline">
+              วางแผน
+            </a>
+            <a className="bg-white text-pink-600 px-4 py-1 rounded-lg font-semibold hover:bg-gray-100">
+              บัญชีของฉัน
+            </a>
+          </nav>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+      </header>
+
+      {/* Search + Buttons */}
+      <section className="max-w-5xl mx-auto px-6 py-12 text-center">
+        <h2 className="text-4xl font-bold text-gray-800 mb-6">
+          ชีทสรุปวิชาต่างๆ
+        </h2>
+
+        {/* Search bar */}
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-6">
+          <input
+            type="text"
+            placeholder="ค้นหาวิชา..."
+            className="w-full sm:w-1/2 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        </div>
+
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <button className="bg-pink-400 hover:bg-pink-500 text-white font-semibold px-6 py-2 rounded-lg">
+            โหลดชีทสรุป
+          </button>
+          <button className="bg-gray-800 hover:bg-gray-900 text-white font-semibold px-6 py-2 rounded-lg">
+            ติดต่อพวกเรา
+          </button>
+        </div>
+      </section>
+
+      {/* Table */}
+      <section className="max-w-6xl mx-auto px-6 pb-16">
+        <div className="bg-white rounded-xl shadow-md overflow-hidden overflow-x-auto">
+          <table className="w-full min-w-[600px] text-left">
+            <thead className="bg-gray-100 text-gray-700">
+              <tr>
+                <th className="py-3 px-6">ชื่อวิชา</th>
+                <th className="py-3 px-6">รายละเอียด</th>
+                <th className="py-3 px-6">ไฟล์</th>
+                <th className="py-3 px-6">วันที่</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y">
+              <tr>
+                <td className="py-3 px-6 font-semibold">คณิตศาสตร์</td>
+                <td className="px-6">ม.3 เทอม 1</td>
+                <td className="px-6">
+                  <a
+                    href="#"
+                    className="bg-green-100 text-green-600 px-3 py-1 rounded-lg"
+                  >
+                    ดาวน์โหลด
+                  </a>
+                </td>
+                <td className="px-6">29/11/2024</td>
+              </tr>
+              <tr>
+                <td className="py-3 px-6 font-semibold">วิทยาศาสตร์</td>
+                <td className="px-6">ม.3 เทอม 1</td>
+                <td className="px-6">
+                  <a
+                    href="#"
+                    className="bg-green-100 text-green-600 px-3 py-1 rounded-lg"
+                  >
+                    ดาวน์โหลด
+                  </a>
+                </td>
+                <td className="px-6">29/11/2024</td>
+              </tr>
+              <tr>
+                <td className="py-3 px-6 font-semibold">ภาษาไทย</td>
+                <td className="px-6">ม.3 เทอม 1</td>
+                <td className="px-6">
+                  <a
+                    href="#"
+                    className="bg-green-100 text-green-600 px-3 py-1 rounded-lg"
+                  >
+                    ดาวน์โหลด
+                  </a>
+                </td>
+                <td className="px-6">20/07/2025</td>
+              </tr>
+              <tr>
+                <td className="py-3 px-6 font-semibold">ภาษาอังกฤษ</td>
+                <td className="px-6">ม.3 เทอม 1</td>
+                <td className="px-6">
+                  <a
+                    href="#"
+                    className="bg-green-100 text-green-600 px-3 py-1 rounded-lg"
+                  >
+                    ดาวน์โหลด
+                  </a>
+                </td>
+                <td className="px-6">29/11/2024</td>
+              </tr>
+              <tr>
+                <td className="py-3 px-6 font-semibold">สังคมศึกษา</td>
+                <td className="px-6">ม.3 เทอม 1</td>
+                <td className="px-6">
+                  <a
+                    href="#"
+                    className="bg-green-100 text-green-600 px-3 py-1 rounded-lg"
+                  >
+                    ดาวน์โหลด
+                  </a>
+                </td>
+                <td className="px-6">20/07/2025</td>
+              </tr>
+              <tr>
+                <td className="py-3 px-6 font-semibold">ประวัติศาสตร์</td>
+                <td className="px-6">ม.3 เทอม 1</td>
+                <td className="px-6">
+                  <a
+                    href="#"
+                    className="bg-green-100 text-green-600 px-3 py-1 rounded-lg"
+                  >
+                    ดาวน์โหลด
+                  </a>
+                </td>
+                <td className="px-6">22/07/2025</td>
+              </tr>
+              <tr>
+                <td className="py-3 px-6 font-semibold">ดนตรี</td>
+                <td className="px-6">โน้ตสรุปทฤษฎี</td>
+                <td className="px-6">
+                  <a
+                    href="#"
+                    className="bg-green-100 text-green-600 px-3 py-1 rounded-lg"
+                  >
+                    ดาวน์โหลด
+                  </a>
+                </td>
+                <td className="px-6">15/08/2025</td>
+              </tr>
+              <tr>
+                <td className="py-3 px-6 font-semibold">ศิลปะ</td>
+                <td className="px-6">แนวข้อสอบ</td>
+                <td className="px-6">
+                  <a
+                    href="#"
+                    className="bg-green-100 text-green-600 px-3 py-1 rounded-lg"
+                  >
+                    ดาวน์โหลด
+                  </a>
+                </td>
+                <td className="px-6">16/08/2025</td>
+              </tr>
+              <tr>
+                <td className="py-3 px-6 font-semibold">คอมพิวเตอร์</td>
+                <td className="px-6">Python เบื้องต้น</td>
+                <td className="px-6">
+                  <a
+                    href="#"
+                    className="bg-green-100 text-green-600 px-3 py-1 rounded-lg"
+                  >
+                    ดาวน์โหลด
+                  </a>
+                </td>
+                <td className="px-6">20/08/2025</td>
+              </tr>
+              <tr>
+                <td className="py-3 px-6 font-semibold">สุขศึกษา</td>
+                <td className="px-6">โภชนาการและการออกกำลังกาย</td>
+                <td className="px-6">
+                  <a
+                    href="#"
+                    className="bg-green-100 text-green-600 px-3 py-1 rounded-lg"
+                  >
+                    ดาวน์โหลด
+                  </a>
+                </td>
+                <td className="px-6">25/08/2025</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
     </div>
   );
 }
